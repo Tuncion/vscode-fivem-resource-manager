@@ -1,0 +1,162 @@
+{
+  "name": "fivem-resource-manager",
+  "displayName": "FiveM Resource Manager",
+  "description": "A Visual Studio Code integrated FiveM Resource Manager - Easily restart any resource on your server",
+  "publisher": "ViorityGroup",
+	"homepage": "https://tuncion.de",
+  "icon": "resources/icon.png",
+  "version": "1.0.0",
+  "license": "gpl-3.0",
+	"repository": "https://github.com/Tuncion/vscode-fivem-resource-manager",
+  "cfx": "https://forum.cfx.re/u/tuncion/summary",
+
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./src/extension.js",
+  "contributes": {
+    "viewsWelcome": [
+      {
+        "view": "fivem-resource-manager.resources",
+        "contents": "No FiveM Server connection found.\n[Setup Connection](command:fivem-resource-manager.getStarted)",
+        "when": "!fivem-resource-manager.connected"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "fivem-resource-manager",
+          "title": "FiveM Resource Manager",
+          "icon": "resources/viewContainer.png"
+        }
+      ]
+    },
+    "views": {
+      "fivem-resource-manager": [
+        {
+          "id": "fivem-resource-manager.resources",
+          "name": "Resources",
+          "title": "Resources"
+        },
+        {
+          "id": "fivem-resource-manager.helpandfeedback",
+          "name": "Help and Feedback",
+          "title": "Help and Feedback"
+        }
+      ]
+    },
+
+    "menus": {
+      "view/title": [
+        {
+          "command": "fivem-resource-manager.refreshResources",
+          "when": "view == fivem-resource-manager.resources",
+          "group": "navigation"
+        },
+        {
+          "command": "fivem-resource-manager.filterResources",
+          "when": "view == fivem-resource-manager.resources",
+          "group": "navigation"
+        },
+        {
+          "command": "fivem-resource-manager.resetConnection",
+          "when": "view == fivem-resource-manager.resources",
+          "group": "navigation"
+        }
+      ],
+
+      "view/item/context": [
+        {
+          "command": "fivem-resource-manager.restartResource",
+          "when": "view == fivem-resource-manager.resources",
+          "group": "inline"
+        },
+        {
+          "command": "fivem-resource-manager.setFavorite",
+          "when": "view == fivem-resource-manager.resources"
+        },
+        {
+          "command": "fivem-resource-manager.restartResource",
+          "when": "view == fivem-resource-manager.resources"
+        }
+      ]
+    },
+
+    "commands": [
+      {
+        "command": "fivem-resource-manager.creator",
+        "title": "FiveM Resource Manager: Creator"
+      },
+      {
+        "command": "fivem-resource-manager.contactCreator",
+        "title": "FiveM Resource Manager: Contact Creator"
+      },
+      {
+        "command": "fivem-resource-manager.reportIssue",
+        "title": "FiveM Resource Manager: Report Issue"
+      },
+      {
+        "command": "fivem-resource-manager.pullrequest",
+        "title": "FiveM Resource Manager: Create Pull Request"
+      },
+      {
+        "command": "fivem-resource-manager.connect",
+        "title": "FiveM Resource Manager: Connect"
+      },
+      {
+        "command": "fivem-resource-manager.refreshResources",
+        "title": "Refresh Resource",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "fivem-resource-manager.filterResources",
+        "title": "Filter Resources",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "fivem-resource-manager.resetConnection",
+        "title": "Reset Connection",
+        "icon": "$(debug-disconnect)"
+      },
+      {
+        "command": "fivem-resource-manager.restartResource",
+        "title": "Restart Resource",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "fivem-resource-manager.setFavorite",
+        "title": "Set Favorite",
+        "icon": "$(flame)"
+      },
+      {
+        "command": "fivem-resource-manager.getStarted",
+        "title": "FiveM Resource Manager: Get Started"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.82.0",
+    "@vscode/test-electron": "^2.2.3",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "rcon": "^1.1.0"
+  }
+}
