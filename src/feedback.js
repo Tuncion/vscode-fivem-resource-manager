@@ -21,7 +21,7 @@ class FeedbackProvider {
         const GetStarted = new vscode.TreeItem('Get Started');
         GetStarted.iconPath = new vscode.ThemeIcon('star');
         GetStarted.command = {
-            command: 'fivem-resource-manager.getstarted',
+            command: 'fivem-resource-manager.getStarted',
             title: 'Get Started'
         };
         feedbackItems.push(GetStarted);
