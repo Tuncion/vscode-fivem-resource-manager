@@ -5,7 +5,7 @@
   "publisher": "ViorityGroup",
 	"homepage": "https://tuncion.de",
   "icon": "resources/icon.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "gpl-3.0",
 	"repository": "https://github.com/Tuncion/vscode-fivem-resource-manager",
   "cfx": "https://forum.cfx.re/u/tuncion/summary",
